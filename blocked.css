@@ -7,7 +7,8 @@ header { display: flex; align-items: center; justify-content: space-between; pad
 .header-note { color: var(--muted); font-size: 10px; letter-spacing: 2px; }
 main { display: grid; place-items: center; flex: 1; padding: 24px; }
 .message { text-align: center; width: min(100%, 820px); }
-.gesture { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; font-size: clamp(110px, 18vh, 190px); line-height: 1.2; margin: 0 auto 22px; }
+.gesture { display: grid; place-items: center; font-size: clamp(110px, 18vh, 190px); height: 1.2em; margin: 0 auto 22px; }
+.gesture img { display: block; width: auto; height: 1.05em; max-width: 100%; object-fit: contain; }
 h1 { font-size: clamp(32px, 5.4vw, 68px); line-height: 1.03; font-weight: 800; letter-spacing: -.055em; margin: 0; }
 .domain { display: inline-block; max-width: 100%; color: var(--accent); font: 12px ui-monospace, SFMono-Regular, Consolas, monospace; overflow-wrap: anywhere; margin: 21px 0 0; padding: 7px 11px; border: 1px solid #3e4330; border-radius: 6px; }
 .subtext { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 18px 0 0; }

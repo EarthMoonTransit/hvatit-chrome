@@ -233,7 +233,7 @@ test('manifest declares required redirects, resources and every referenced local
   assert.deepEqual(manifest.host_permissions, ['http://*/*', 'https://*/*']);
   assert.ok(manifest.web_accessible_resources.some(r => r.resources.includes('blocked.html')));
   const files = [manifest.background.service_worker, manifest.action.default_popup,
-    ...Object.values(manifest.icons), 'blocked.html', 'blocked.css', 'blocked.js', 'popup.css', 'popup.js'];
+    ...Object.values(manifest.icons), 'blocked.html', 'blocked.css', 'blocked.js', 'popup.css', 'popup.js', 'assets/middle-finger.png'];
   await Promise.all(files.map(file => access(new URL(file, base))));
   const blocked = await readFile(new URL('blocked.html', base), 'utf8');
   assert.match(blocked, /🖕/);
