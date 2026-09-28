@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Хватит — блокировщик сайтов</title>
+  <link rel="stylesheet" href="popup.css">
+  <script type="module" src="popup.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">↗</span>ХВАТИТ<span class="brand-dot">.</span></div>
+    <span class="local"><span aria-hidden="true"></span>Твоё время</span>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">ВЕРНИ СЕБЕ ВНИМАНИЕ</p>
+      <h1>Меньше шума.<br><span>Больше дела.</span></h1>
+      <p class="description">Оставь отвлекающие сайты за дверью.</p>
+    </section>
+    <form id="add-form" novalidate>
+      <label for="site">Какой сайт заблокировать?</label>
+      <input id="site" name="site" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="2048" placeholder="Вставь ссылку или youtube.com" aria-describedby="hint status" required>
+      <p id="hint" class="hint">Блокируется весь домен и его поддомены.</p>
+      <button class="primary" id="add-button" type="submit" disabled>Заблокировать <span aria-hidden="true">↗</span></button>
+      <button class="current" id="current-button" type="button" disabled>Добавить текущий сайт</button>
+    </form>
+    <p id="status" role="status" aria-live="polite" aria-atomic="true"></p>
+    <section class="sites-section" aria-labelledby="sites-title">
+      <div class="list-heading"><h2 id="sites-title">За дверью</h2><span id="count" class="count">0</span></div>
+      <p id="empty" class="empty">Пока пусто.<br><span>Добавь первый сайт — и к делу.</span></p>
+      <ul id="sites" aria-label="Заблокированные сайты"></ul>
+    </section>
+  </main>
+  <footer>Без аккаунтов. Без слежки. Только фокус.</footer>
+</body>
+</html>
