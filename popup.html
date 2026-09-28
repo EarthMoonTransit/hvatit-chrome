@@ -14,22 +14,29 @@
   </header>
   <main>
     <section class="intro">
-      <p class="eyebrow">ВЕРНИ СЕБЕ ВНИМАНИЕ</p>
       <h1>Меньше шума.<br><span>Больше дела.</span></h1>
-      <p class="description">Оставь отвлекающие сайты за дверью.</p>
     </section>
     <form id="add-form" novalidate>
-      <label for="site">Какой сайт заблокировать?</label>
-      <input id="site" name="site" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="2048" placeholder="Вставь ссылку или youtube.com" aria-describedby="hint status" required>
-      <p id="hint" class="hint">Блокируется весь домен и его поддомены.</p>
+      <label for="site">Что заблокировать?</label>
+      <input id="site" name="site" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="2048" placeholder="example.com или example.com/feed" aria-describedby="hint status" required>
+      <div class="mode-field">
+        <label for="mode">Режим</label>
+        <select id="mode" name="mode" aria-describedby="hint">
+          <option value="auto">Автоматически по адресу</option>
+          <option value="site">Весь сайт</option>
+          <option value="section">Раздел и вложенные страницы</option>
+          <option value="page">Точная страница</option>
+        </select>
+      </div>
+      <p id="hint" class="hint">Домен → весь сайт; путь → раздел; параметры или # → точная страница.</p>
       <button class="primary" id="add-button" type="submit" disabled>Заблокировать <span aria-hidden="true">↗</span></button>
-      <button class="current" id="current-button" type="button" disabled>Добавить текущий сайт</button>
+      <button class="current" id="current-button" type="button" disabled>Подставить текущий адрес</button>
     </form>
     <p id="status" role="status" aria-live="polite" aria-atomic="true"></p>
     <section class="sites-section" aria-labelledby="sites-title">
       <div class="list-heading"><h2 id="sites-title">За дверью</h2><span id="count" class="count">0</span></div>
       <p id="empty" class="empty">Пока пусто.<br><span>Добавь первый сайт — и к делу.</span></p>
-      <ul id="sites" aria-label="Заблокированные сайты"></ul>
+      <ul id="sites" aria-label="Правила блокировки"></ul>
     </section>
   </main>
   <footer>Без аккаунтов. Без слежки. Только фокус.</footer>

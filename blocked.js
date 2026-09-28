@@ -1,8 +1,10 @@
 const domainElement = document.querySelector("#domain");
 try {
-  const domain = decodeURIComponent(location.hash.slice(1));
-  if (domain && domain.length <= 253 && /^[a-z\d.-]+$/i.test(domain)) {
-    domainElement.textContent = domain;
+  const value = location.hash.startsWith("#v2=")
+    ? JSON.parse(decodeURIComponent(location.hash.slice(4))).value
+    : decodeURIComponent(location.hash.slice(1));
+  if (typeof value === "string" && value && value.length <= 4096 && !/[\u0000-\u001f\u007f]/.test(value)) {
+    domainElement.textContent = value;
     domainElement.hidden = false;
   }
 } catch { /* A malformed hash does not affect the blocking page. */ }

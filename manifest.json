@@ -3,9 +3,9 @@
   "name": "Хватит — блокировщик сайтов",
   "short_name": "Хватит",
   "description": "Блокируй отвлекающие сайты. Вместо них — 🖕 и напоминание вернуться к делу.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "minimum_chrome_version": "101",
-  "permissions": ["declarativeNetRequestWithHostAccess"],
+  "permissions": ["declarativeNetRequestWithHostAccess", "webNavigation"],
   "host_permissions": ["http://*/*", "https://*/*"],
   "background": {"service_worker": "background.js", "type": "module"},
   "action": {

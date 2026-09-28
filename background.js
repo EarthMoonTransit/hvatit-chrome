@@ -23,3 +23,11 @@ chrome.tabs.onActivated.addListener(({tabId}) => {
     .then(tab => manager.guardTab(tabId, tab.pendingUrl || tab.url))
     .catch(() => {});
 });
+
+// Site-independent handling of History API navigation, hash routers and Back/Forward cache.
+const guardNavigation = details => {
+  if (details.frameId === 0) manager.guardTab(details.tabId, details.url).catch(() => {});
+};
+chrome.webNavigation.onHistoryStateUpdated.addListener(guardNavigation);
+chrome.webNavigation.onReferenceFragmentUpdated.addListener(guardNavigation);
+chrome.webNavigation.onCommitted.addListener(guardNavigation);
